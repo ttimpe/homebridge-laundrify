@@ -17,7 +17,7 @@ class LaundrifySensor {
         this.name = config['name'];
         this.id = config['id'];
         this.ipAddress = config['ipAddress'];
-        this.threshold = config['threshold'];
+        this.threshold = parseInt(config['threshold']);
 
         this.enabledServices = [];
 
@@ -30,7 +30,7 @@ class LaundrifySensor {
     initSensor() {
         // info service
 
-        pollStatus(() => {
+        this.pollStatus(() => {
 
          this.informationService = new Service.AccessoryInformation();
         this.informationService
@@ -55,7 +55,7 @@ class LaundrifySensor {
 
 
         pollStatus(callback) {
-            const status_url = this.ip + '/status';
+            const status_url = 'http://' + this.ip + '/status';
 
             const req = http.get(status_url, res => {
                 let data = '';
