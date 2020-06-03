@@ -30,14 +30,13 @@ class LaundrifySensor {
     initSensor() {
         // info service
 
-        this.pollStatus(() => {
 
             this.informationService = new Service.AccessoryInformation();
             this.informationService
             .setCharacteristic(Characteristic.Manufacturer, 'laundrify')
             .setCharacteristic(Characteristic.Model, 'laundrify')
-            .setCharacteristic(Characteristic.SerialNumber, this.deviceId)
-            .setCharacteristic(Characteristic.FirmwareRevision, this.version);
+            .setCharacteristic(Characteristic.SerialNumber, 'serial')
+            .setCharacteristic(Characteristic.FirmwareRevision, 'FIRMWARE');
 
             this.enabledServices.push(this.informationService);
             //this.log('Got information service');
@@ -48,8 +47,6 @@ class LaundrifySensor {
         .on('get', this.getSensorState.bind(this));
         this.enabledServices.push(this.sensorService);
 
-
-    }, this);
         var that = this;
         this.timer = setInterval(function () {
             that.pollStatus(undefined, that)
