@@ -40,7 +40,7 @@ class LaundrifySensor {
             .setCharacteristic(Characteristic.FirmwareRevision, this.version);
 
             this.enabledServices.push(this.informationService);
-            this.log('Got information service');
+            //this.log('Got information service');
         // fan service
         this.sensorService = new Service.ContactSensor(this.name);
         this.sensorService
@@ -57,7 +57,7 @@ class LaundrifySensor {
 
     pollStatus(callback) {
         const status_url = 'http://' + this.ip + '/status';
-
+        var that = this;
         const req = http.get(status_url, res => {
             let data = '';
             res.on('data', (chunk) => {
@@ -65,15 +65,15 @@ class LaundrifySensor {
             });
             res.on('end', () => {
                 var statusObject = JSON.parse(data);
-                this.deviceId = statusObject.deviceId;
-                this.power = statusObject.power;
-                this.version = statusObject.version;
+                that.deviceId = statusObject.deviceId;
+                that.power = statusObject.power;
+                that.version = statusObject.version;
                 if (callback != undefined) {
                     callback();
                 }
             });
         }).on("error", (err) => {
-            this.log('error on pollStatus');
+            that.log('error on pollStatus');
         });
     }
 
