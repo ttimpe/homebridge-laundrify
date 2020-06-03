@@ -56,16 +56,13 @@ class LaundrifySensor {
 
 
     pollStatus(callback, that) {
-        console.log('this is', that)
         const status_url = 'http://' + that.ipAddress + '/status';
-        console.log('status url:', status_url);
         const req = http.get(status_url, res => {
             let data = '';
             res.on('data', (chunk) => {
                 data += chunk;
             });
             res.on('end', () => {
-                console.log('JSON data is: ', data);
                 var statusObject = JSON.parse(data);
                 that.deviceId = statusObject.deviceId;
                 that.power = statusObject.meters[0].power;
