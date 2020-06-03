@@ -73,7 +73,7 @@ class LaundrifySensor {
                 }
             });
         }).on("error", (err) => {
-            that.log('error on pollStatus');
+            console.log('error on pollStatus');
         });
     }
 
