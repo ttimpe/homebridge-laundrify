@@ -15,7 +15,6 @@ class LaundrifySensor {
 
         // configuration
         this.name = config['name'];
-        this.id = config['id'];
         this.ipAddress = config['ipAddress'];
         this.threshold = parseInt(config['threshold']);
         this.interval = parseInt(config['interval']);
