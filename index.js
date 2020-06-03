@@ -50,7 +50,7 @@ class LaundrifySensor {
 
 
     });
-        this.timer = setInterval(this.pollStatus, interval)
+        this.timer = setInterval(this.pollStatus, this.interval)
     }
 
 
