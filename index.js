@@ -56,7 +56,7 @@ class LaundrifySensor {
 
 
     pollStatus(callback) {
-        const status_url = 'http://' + this.ip + '/status';
+        const status_url = 'http://' + this.ipAddress + '/status';
         var that = this;
         const req = http.get(status_url, res => {
             let data = '';
