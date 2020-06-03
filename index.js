@@ -62,7 +62,7 @@ class LaundrifySensor {
         const req = http.get(status_url, res => {
             let data = '';
             res.on('data', (chunk) => {
-                data += data;
+                data += chunk;
             });
             res.on('end', () => {
                 console.log('JSON data is: ', data);
