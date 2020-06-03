@@ -49,7 +49,7 @@ class LaundrifySensor {
         this.enabledServices.push(this.sensorService);
 
 
-    });
+    }, this);
         var that = this;
         this.timer = setInterval(function () {
             that.pollStatus(undefined, that)
