@@ -64,9 +64,10 @@ class LaundrifySensor {
                 data += data;
             });
             res.on('end', () => {
+                console.log(data);
                 var statusObject = JSON.parse(data);
                 that.deviceId = statusObject.deviceId;
-                that.power = statusObject.power;
+                that.power = statusObject.meters[0].power;
                 that.version = statusObject.version;
                 if (callback != undefined) {
                     callback();
