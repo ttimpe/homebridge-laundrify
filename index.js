@@ -50,15 +50,18 @@ class LaundrifySensor {
 
 
     });
-        this.timer = setInterval(this.pollStatus, this.interval)
+        var that = this;
+        this.timer = setInterval(function () {
+            that.pollStatus(undefined, that)
+        }, this.interval)
     }
 
 
 
-    pollStatus(callback) {
-        const status_url = 'http://' + this.ipAddress + '/status';
+    pollStatus(callback, that) {
+        console.log('this is', that)
+        const status_url = 'http://' + that.ipAddress + '/status';
         console.log('status url:', status_url);
-        var that = this;
         const req = http.get(status_url, res => {
             let data = '';
             res.on('data', (chunk) => {
