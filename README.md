@@ -1,6 +1,6 @@
 # homebridge-laundrify
 
-Simple homebridge ContactSensor plugin for homebridge.
+Simple homebridge ContactSensor plugin for laundrify adapters.
 
 
 ## Configuration
