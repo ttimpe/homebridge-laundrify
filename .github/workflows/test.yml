@@ -37,7 +37,6 @@ jobs:
       run: |
         mkdir ~/.homebridge
         cp $GITHUB_WORKSPACE/test/config.json ~/.homebridge/config.json
-        mkdir /usr/lib/node_modules
         cp -R $GITHUB_WORKSPACE /usr/lib/node_modules/homebridge-laundrify
 
     # Runs homebridge
