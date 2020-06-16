@@ -37,7 +37,9 @@ jobs:
       run: |
         mkdir ~/.homebridge
         cp $GITHUB_WORKSPACE/test/config.json ~/.homebridge/config.json
-        sudo cp -R $GITHUB_WORKSPACE/* /usr/lib/node_modules/homebridge-laundrify
+        sudo cp -R $GITHUB_WORKSPACE /usr/lib/node_modules/homebridge-laundrify
+        ls -la /usr/lib/node_modules
+        ls -laR /usr/lib/node_modules/homebridge-laundrify
 
     # Runs homebridge
     - name: Starting homebridge with plugin
