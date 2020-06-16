@@ -32,4 +32,6 @@ jobs:
     # Runs a set of commands using the runners shell
     - name: Install homebridge
       run: sudo npm install --unsafe-perm -g homebridge
-      
+    # Runs homebridge
+      name: Starting homebridge with plugin
+      run: homebridge -D -P $GITHUB_WORKSPACE
