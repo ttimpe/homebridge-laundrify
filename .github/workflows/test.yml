@@ -24,12 +24,12 @@ jobs:
 
     # Runs a single command using the runners shell
     - name: Install curl
-      run: apt install -y curl
+      run: sudo apt install -y curl
     - name: Install Node
       run: |
-        curl -sL https://deb.nodesource.com/setup_12.x | bash -
-        apt install -y nodejs
+        curl -sL https://deb.nodesource.com/setup_12.x | sudo bash -
+        sudo apt install -y nodejs
     # Runs a set of commands using the runners shell
     - name: Install homebridge
-      run: npm install --unsafe-perm -g homebridge
+      run: sudo npm install --unsafe-perm -g homebridge
       
