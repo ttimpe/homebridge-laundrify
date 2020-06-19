@@ -38,8 +38,7 @@ jobs:
         mkdir ~/.homebridge
         cp $GITHUB_WORKSPACE/test/config.json ~/.homebridge/config.json
         sudo cp -R $GITHUB_WORKSPACE /usr/lib/node_modules/homebridge-laundrify
-        ls -la /usr/lib/node_modules
-        ls -laR /usr/lib/node_modules/homebridge-laundrify
+        chmod +x $GITHUB_WORKSPACE/test/test.sh
     # Run homebridge in screen
     - name: Running homebridge
       run: $GITHUB_WORKSPACE/test/test.sh
