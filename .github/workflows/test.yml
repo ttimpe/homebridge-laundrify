@@ -23,8 +23,8 @@ jobs:
     - uses: actions/checkout@v2
 
     # Runs a single command using the runners shell
-    - name: Install curl
-      run: sudo apt install -y curl
+    - name: Install packages
+      run: sudo apt install -y curl screen
     - name: Install Node
       run: |
         curl -sL https://deb.nodesource.com/setup_12.x | sudo bash -
@@ -40,7 +40,6 @@ jobs:
         sudo cp -R $GITHUB_WORKSPACE /usr/lib/node_modules/homebridge-laundrify
         ls -la /usr/lib/node_modules
         ls -laR /usr/lib/node_modules/homebridge-laundrify
-
-    # Runs homebridge
-    - name: Starting homebridge with plugin
-      run: homebridge -D
+    # Run homebridge in screen
+    - name: Running homebridge
+      run: $GITHUB_WORKSPACE/test/test.sh
