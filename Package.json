@@ -1,6 +1,6 @@
 {
   "name": "homebridge-laundrify",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Homebridge plugin for Laundrify outlets",
   "main": "lib/index.js",
   "engines": {
