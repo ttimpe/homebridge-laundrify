@@ -1,5 +1,11 @@
 # homebridge-laundrify
 
+## Update
+
+This plugin is now deprecated and will no longer be supported. Please migrate to homebridge-laundrify-official.
+
+
+
 Simple homebridge ContactSensor plugin for laundrify adapters.
 
 
